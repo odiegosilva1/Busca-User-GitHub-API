@@ -16,7 +16,7 @@ Abaixo você pode ver um print de como fica o resultado:
 
 Se quiser ver o projeto rodando, é só acessar o link abaixo:
 
-👉 [Deploy na Vercel](busca-user-git-hub-api.vercel.app)
+👉 [Deploy na Vercel](https://busca-user-git-hub-api.vercel.app/)
 
 ---
 
