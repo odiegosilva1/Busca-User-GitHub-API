@@ -7,16 +7,60 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Buscar Usuário do GitHub</h1>
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Digite o nome de usuário..."
-      />
-      <button id="searchButton">Buscar</button>
-      <div id="userInfo" class="user-info"></div>
-      <div id="errorMessage" class="error-message"></div>
+    <!-- Container Principal -->
+    <div class="app-container">
+      <!-- Cabeçalho com Logo -->
+      <header class="app-header">
+        <h1>
+          <img
+            src="./assets/logo-main.svg"
+            alt="GitHub Search"
+            class="app-logo"
+          />
+        </h1>
+      </header>
+
+      <!-- Seção de Busca -->
+      <section class="search-section">
+        <div class="search-wrapper">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Digite o nome de usuário..."
+            class="search-input"
+          />
+          <button id="searchButton" class="search-button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M21 21L16.65 16.65"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Seção de Resultados (inicialmente oculta) -->
+      <section id="userResults" class="results-section">
+        <div id="userInfo" class="user-info"></div>
+        <div id="errorMessage" class="error-message"></div>
+      </section>
     </div>
 
     <script src="./js/script.js"></script>

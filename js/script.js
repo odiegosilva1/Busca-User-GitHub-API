@@ -1,9 +1,23 @@
 document.getElementById("searchButton").addEventListener("click", () => {
-  const username = document.getElementById("searchInput").value;
+  const username = document.getElementById("searchInput").value.trim();
+  const resultsSection = document.getElementById("userResults");
+  const userInfo = document.getElementById("userInfo");
+  const errorMessage = document.getElementById("errorMessage");
 
-  if (username === "") {
+  // Reset states
+  errorMessage.style.display = "none";
+  userInfo.innerHTML = "";
+
+  if (!username) {
+    errorMessage.textContent = "Por favor, digite um nome de usuário";
+    errorMessage.style.display = "block";
+    resultsSection.style.display = "block";
     return;
   }
+
+  // Show loading state
+  userInfo.innerHTML = `<p class="loading">Buscando usuário...</p>`;
+  resultsSection.style.display = "block";
 
   fetch(`https://api.github.com/users/${username}`)
     .then((response) => {
@@ -13,16 +27,36 @@ document.getElementById("searchButton").addEventListener("click", () => {
       return response.json();
     })
     .then((data) => {
-      document.getElementById("userInfo").innerHTML = `
-              <h2>${data.name}</h2>
-              <img src="${data.avatar_url}" alt="${data.name}">
-              <p>${data.bio || "Este usuário não tem bio."}</p>
-          `;
-      document.getElementById("errorMessage").style.display = "none";
+      userInfo.innerHTML = `
+        <h2>${data.name || username}</h2>
+        <img src="${data.avatar_url}" alt="${data.name || username}">
+        <p>${data.bio || "Este usuário não possui biografia."}</p>
+        <div class="user-stats">
+          <div class="stat-item">
+            <div class="stat-value">${data.public_repos}</div>
+            <div class="stat-label">Repositórios</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">${data.followers}</div>
+            <div class="stat-label">Seguidores</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">${data.following}</div>
+            <div class="stat-label">Seguindo</div>
+          </div>
+        </div>
+      `;
     })
     .catch((error) => {
-      document.getElementById("userInfo").innerHTML = "";
-      document.getElementById("errorMessage").textContent = error.message;
-      document.getElementById("errorMessage").style.display = "block";
+      errorMessage.textContent = error.message;
+      errorMessage.style.display = "block";
+      userInfo.innerHTML = "";
     });
+});
+
+// Allow search on Enter key
+document.getElementById("searchInput").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("searchButton").click();
+  }
 });
