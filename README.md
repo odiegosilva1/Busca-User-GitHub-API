@@ -1,8 +1,3 @@
----
-
-### 📄 `README.md`
-
-```markdown
 # 👨‍💻 Projeto: Perfil GitHub
 
 Essa aplicação permite que você digite um nome de usuário do GitHub e veja as infos públicas dessa pessoa, como nome, bio, avatar, número de repositórios, seguidores e quem ela segue.
@@ -47,39 +42,15 @@ Esse projeto foi feito usando:
 
 ## 🗂️ Estrutura do projeto
 
-```
-Busca-User-GitHub-API
-├── assets
-│   └── logo-main.svg
+```bash
+Busca-User-GitHub-API/
+├── assets/
+│   ├── logo-main.svg
 │   └── print-GH.png
-├── css
+├── css/
 │   └── style.css
-├── js
+├── js/
 │   └── script.js
 ├── index.html
 └── README.md
-```
-
----
-
-## 🤝 Quer contribuir?
-
-Fique à vontade! Qualquer sugestão, melhoria ou correção é super bem-vinda.  
-Se curtir o projeto e quiser colaborar, é só fazer um fork e abrir um pull request 😉
-
-🔗 Repositório oficial:  
-[https://github.com/odiegosilva1/Busca-User-GitHub-API](https://github.com/odiegosilva1/Busca-User-GitHub-API)
-
----
-
-## 📃 Licença
-
-Esse projeto está sob a licença MIT.
-
-```
-
----
-
-
-
 ```
